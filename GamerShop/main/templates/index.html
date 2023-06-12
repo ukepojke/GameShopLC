@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div class="banner_section layout_padding">
+    <div class="container">
+      <div id="my_slider" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-6">
+                <h1 class="video_text">{{ ps1.name }}</h1>
+                <h1 class="controller_text">Silver edition</h1>
+                <p class="banner_text">{{ ps1.description|truncatechars:400 }}</p>
+                <div class="shop_bt"><a href="/product/{{ ps1.id }}">Читать больше...</a></div>
+              </div>
+              <div class="col-md-6">
+                <a href="/product/{{ ps1.id }}"><div class="image_1"><img src="{{ ps1.image.url }}"></div></a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- banner section end -->
+  <!-- product section start -->
+  <div class="product_section layout_padding">
+    <div class="container">
+      <div class="product_text">Все <span style="color: #5ca0e9;">продукты</span></div>
+      <p class="long_text">“I'm not worried. Good luck, ... the center of gravity.” -- Ken Kutaragi (PlayStation Founder)</p>
+      <div class="product_section_2">
+        <div class="row">
+          {% for i in product %}
+          <div class="col-md-6">
+            <a href="/product/{{ i.id }}"><div class="image_2"><img src="{{ i.image.url }}"></div></a>
+            <div class="price_text">Цена KGS <span style="color: #3a3a38;">{{ i.price }}</span></div>
+            <h1 class="game_text">{{ i.name }}</h1>
+            <p class="long_text">{{ i.description|truncatechars:400 }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="see_main">
+        <div class="see_bt"><a href="/product/">Все продукты...</a></div>
+      </div>
+    </div>
+  </div>
+  <!-- product section end -->
+ {% endblock %}

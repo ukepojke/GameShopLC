@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ i.name }}
+{% endblock %}
+{% block content %}
+  <!-- about section start -->
+   <div class="product_section layout_padding">
+    <div class="move-rightbig">
+      <div class="product_section_2">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="image_2"><img src="{{ product.image.url }}"></div>
+            <div class="price_text">Цена KGS <span style="color: #3a3a38;">{{ i.price }}</span></div>
+            <h1 class="game_text">{{ product.name }}</h1>
+            <p class="long_text">{{ product.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+     <div class="see_main">
+        <div class="see_bt"><a href="/contact/">Купить...</a></div>
+      </div>
+  </div>
+  <!-- about section end -->
+{% endblock %}
