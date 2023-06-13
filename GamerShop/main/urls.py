@@ -9,4 +9,5 @@ urlpatterns = [
     path('remot/',remot),
     path('contact/',contact),
     path('product/<int:id>',product_detail),
+    path('videogames/<int:id>',videogames_detail),
 ]

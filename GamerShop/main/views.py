@@ -14,7 +14,8 @@ def product(re):
     return render(re, 'product.html',{'product': product})
 
 def video(re):
-    return render(re, 'video.html')
+    product = Videogames.objects.all()
+    return render(re, 'video.html',{'product': product})
 
 def remot(re):
     return render(re, 'remot.html')
@@ -25,3 +26,7 @@ def contact(re):
 def product_detail(re,id):
     product = Product.objects.get(id=id)
     return render(re,'product_detail.html',{'product':product})
+
+def videogames_detail(re,id):
+    videogames = Videogames.objects.get(id=id)
+    return render(re,'videogames_detail.html',{'videogames':videogames})

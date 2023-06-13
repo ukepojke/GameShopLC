@@ -1,95 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-Video Games
+Video games
 {% endblock %}
 {% block content %}
-  <!-- testimonial section start -->
-  <div class="testimonial_section layout_padding">
+  <!-- product section start -->
+   <div class="product_section layout_padding">
     <div class="container">
-      <br>
-      <br>
-      <br>
-      <h1 class="testimonial_text">PAGE NOT FOUND 404</h1>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <p class="ipsum_text">SORRY</p>
-      <br>
-      <br>
-      <br>
-      <br>
-    </div>
-  </div>
-  <!-- testimonial section end -->
-{% endblock %}
-{% block footer %}
-<!-- footer section start -->
-  <div class="section_footer ">
-      <div class="container">
-          <div class="footer_section_2">
-            <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-3">
-                  <h2 class="account_text">404</h2>
-                  <p class="ipsum_text_2">404</p>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-3">
-                  <h2 class="account_text">404</h2>
-                  <div class="useful_link">
-                    <ul>
-                      <li><a href="#">404</a></li>
-                      <li><a href="#">404</a></li>
-                      <li><a href="#">404</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-3">
-                <h2 class="account_text">404</h2>
-                <p class="ipsum_text_2">404</p>
-                </div>
-          <div class="col-sm-6 col-md-6 col-lg-3">
-            <h2 class="account_text">404</h2>
-            <input type="" class="email_text" placeholder="404" name="404">
-            <button class="subscribr_bt">404</button>
+      <div class="product_text">Все <span style="color: #5ca0e9;">игры</span></div>
+      <p class="long_text">“I'm not worried. Good luck, ... the center of gravity.” -- Ken Kutaragi (PlayStation Founder)</p>
+      <div class="product_section_2">
+        <div class="row">
+          {% for i in product %}
+          <div class="col-md-6">
+            <a href="/videogames/{{ i.id }}"><div class="image_2"><img width="600px" src="{{ i.image.url }}"></div></a>
+            <div class="price_text">Цена KGS <span style="color: #3a3a38;">{{ i.price }}</span></div>
+            <h1 class="game_text">{{ i.name }}</h1>
+            <p class="long_text">{{ i.description|truncatechars:400 }}</p>
           </div>
+          {% endfor %}
         </div>
       </div>
-      <div class="social_icon">
-        <ul>
-          <li><a href="https://www.facebook.com/"><img src="{% static 'images/fb-icon.png' %}"></a></li>
-          <li><a href="https://twitter.com/"><img src="{% static 'images/twitter-icon.png' %}"></a></li>
-          <li><a href="https://www.linkedin.com/"><img src="{% static 'images/linkdin-icon.png' %}"></a></li>
-          <li><a href="https://www.instagram.com/ukeeeboy/"><img src="{% static 'images/instagram-icon.png' %}"></a></li>
-        </ul>
-      </div>
     </div>
   </div>
-  <!-- footer section end -->
-  <!-- Javascript files-->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
-    <script src="{% static 'js/plugin.js' %}"></script>
-    <!-- sidebar -->
-    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-    <script src="{% static 'js/custom.js' %}"></script>
-    <!-- javascript -->
-    <script src="{% static 'js/owl.carousel.js' %}"></script>
-    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script>
-    $(document).ready(function(){
-    $(".fancybox").fancybox({
-        openEffect: "none",
-        closeEffect: "none"
-        });
-    </script>
-</body>
-</html>
+  <!-- product section end -->
 {% endblock %}

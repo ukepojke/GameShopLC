@@ -12,4 +12,5 @@ urlpatterns = [
     path('remot/',include('main.urls')),
     path('contact/',include('main.urls')),
     path('product/<int:id>',include('main.urls')),
+    path('videogames/<int:id>',include('main.urls')),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
